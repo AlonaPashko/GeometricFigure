@@ -8,27 +8,29 @@ namespace GeometricFigure
 {
     internal class Trapezoid : Figure
     {
-        public double SideA { get; set; }
-        public double SideB { get; set; }
-        public double SideC { get; set; }
-        public double SideD { get; set; }
+        public double BigSide { get; set; }
+        public double SmallSide { get; set; }
+        public double BigHeight { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
-        public Trapezoid():this (0.0, 0.0, 0.0, 0.0) { }
-        
-        public Trapezoid(double sideA, double sideB, double sideC, double sideD)
+        public Trapezoid():this (0.0, 0.0, 0.0) { }
+
+        public Trapezoid(double bigSide, double smallSide, double height)
         {
-            SideA = sideA;
-            SideB = sideB;
-            SideC = sideC;
-            SideD = sideD;
-            FigurePerimeter = SideA + SideB + SideC + SideD;
+            BigSide = bigSide;
+            SmallSide = smallSide;
+            BigHeight = height;
+            FigurePerimeter = 2 * (BigSide + SmallSide);
+            FigureArea = (BigSide + SmallSide) * BigHeight / 2;
+            
         }
+
         public override string ToString()
         {
-            return $"This is a trapezoid with sides: {SideA}, {SideB}, {SideC}, {SideD}.\n" + base.ToString();
+            return $"This is a trapezoid with big sides: {BigSide} and small sides: {SmallSide} and height: {BigHeight}.\n" 
+                + base.ToString();
         }
     }
 }

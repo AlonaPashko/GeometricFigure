@@ -19,6 +19,7 @@ namespace GeometricFigure
         {
             Side = side;
             FigurePerimeter = 4 * Side;
+            FigureArea = Math.Pow(Side, 2);
         }
 
         public override string ToString()

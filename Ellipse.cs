@@ -21,6 +21,7 @@ namespace GeometricFigure
             BigRadius = bigRadius;
             SmallRadius = smallRadius;
             FigurePerimeter = 2 * Math.PI * Math.Sqrt((Math.Pow(BigRadius, 2) + Math.Pow(SmallRadius, 2)) / 2);
+            FigureArea = Math.PI * BigRadius * SmallRadius;
         }
         public override string ToString()
         {

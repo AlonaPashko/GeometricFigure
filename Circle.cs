@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 
 namespace GeometricFigure
 {
-    internal class Disk : Figure
+    internal class Circle : Figure
     {
         public double Radius { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
-        public Disk() : this(0.0) { }
+        public Circle() : this(0.0) { }
         
-        public Disk(double radius)
+        public Circle(double radius)
         {
             Radius = radius;
             FigurePerimeter = 2 * Math.PI * Radius;
+            FigureArea = Math.PI * Math.Pow(Radius, 2);
         }
         public override string ToString()
         {
-            return $"This is a disk with radius: {Radius}.\n" + base.ToString();
+            return $"This is a circle with radius: {Radius}.\n" + base.ToString();
         }
     }
 }

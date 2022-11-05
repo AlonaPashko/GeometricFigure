@@ -21,6 +21,7 @@ namespace GeometricFigure
             SideA = sideA;
             SideB = sideB;
             FigurePerimeter = 2 * (SideA + SideB);
+            FigureArea = SideA * SideB;
         }
         public override string ToString()
         {

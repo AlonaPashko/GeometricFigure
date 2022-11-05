@@ -4,8 +4,8 @@ As part of the educational task, an abstract class Figure with abstract properti
 
 From it are inherited:
 
+- class Circle,
 - class Diamond,
-- class Disk,
 - class Ellipse,
 - class Parallelogram,
 - class Rectangle,
