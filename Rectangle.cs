@@ -8,9 +8,9 @@ namespace GeometricFigure
 {
     internal class Rectangle : Figure
     {
-        private double sideA;
-        private double sideB;
-        
+        public double SideA { get; set; }
+        public double SideB { get; set; }
+
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
@@ -18,12 +18,13 @@ namespace GeometricFigure
         
         public Rectangle(double sideA, double sideB)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
+            SideA = sideA;
+            SideB = sideB;
+            FigurePerimeter = 2 * (SideA + SideB);
         }
         public override string ToString()
         {
-            return $"This is a rectangle with sides: {sideA}, {sideB}.\n" + base.ToString();
+            return $"This is a rectangle with sides: {SideA}, {SideB}.\n" + base.ToString();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace GeometricFigure
         public override string ToString()
         {
             return "Figure area: " + FigureArea.ToString() +
-                "\nFigure perimeter: " + FigurePerimeter.ToString();
+                "\nFigure perimeter: " + Math.Round(FigurePerimeter, 3).ToString();
         }
 
     }

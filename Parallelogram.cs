@@ -8,8 +8,8 @@ namespace GeometricFigure
 {
     internal class Parallelogram : Figure
     {
-        private double sideA;
-        private double sideB;
+        public double SideA { get; set; }
+        public double SideB { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
@@ -18,13 +18,13 @@ namespace GeometricFigure
         
         public Parallelogram(double sideA, double sideB)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
-            FigurePerimeter = 2 * (sideA + sideB);
+            SideA = sideA;
+            SideB = sideB;
+            FigurePerimeter = 2 * (SideA + SideB);
         }
         public override string ToString()
         {
-            return $"This is a parallelogram with sides: {sideA}, {sideB}.\n" + base.ToString();
+            return $"This is a parallelogram with sides: {SideA}, {SideB}.\n" + base.ToString();
         }
     }
 }

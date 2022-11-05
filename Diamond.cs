@@ -8,20 +8,21 @@ namespace GeometricFigure
 {
     internal class Diamond : Figure
     {
-        private double sideA;
+        public double Side { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
         public Diamond():this(0.0) { }
        
-        public Diamond(double sideA)
+        public Diamond(double side)
         {
-            this.sideA = sideA;
+            Side = side;
+            FigurePerimeter = 4 * side;
         }
         public override string ToString()
         {
-            return $"This is a diamond with side: {sideA}.\n" + base.ToString();
+            return $"This is a diamond with sides: {Side}.\n" + base.ToString();
         }
     }
 }

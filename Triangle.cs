@@ -9,9 +9,9 @@ namespace GeometricFigure
 {
     internal class Triangle : Figure
     {
-        private double sideA;
-        private double sideB;
-        private double sideC;
+        public double SideA { get; set; }
+        public double SideB { get; set; }
+        public double SideC { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
@@ -20,14 +20,15 @@ namespace GeometricFigure
 
         public Triangle(double sideA, double sideB, double sideC)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
-            this.sideC = sideC;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
+            FigurePerimeter = SideA + SideB + SideC;
         }
         
         public override string ToString()
         {
-            return $"This is a triangle with sides: {sideA}, {sideB}, {sideC}.\n" + base.ToString();
+            return $"This is a triangle with sides: {SideA}, {SideB}, {SideC}.\n" + base.ToString();
         }
     }
 }

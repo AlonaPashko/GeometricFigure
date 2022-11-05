@@ -8,7 +8,7 @@ namespace GeometricFigure
 {
     internal class Disk : Figure
     {
-        private double radius;
+        public double Radius { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
@@ -17,11 +17,12 @@ namespace GeometricFigure
         
         public Disk(double radius)
         {
-            this.radius = radius;
+            Radius = radius;
+            FigurePerimeter = 2 * Math.PI * Radius;
         }
         public override string ToString()
         {
-            return $"This is a disk with radius: {radius}.\n" + base.ToString();
+            return $"This is a disk with radius: {Radius}.\n" + base.ToString();
         }
     }
 }

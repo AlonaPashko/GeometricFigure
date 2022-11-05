@@ -8,21 +8,22 @@ namespace GeometricFigure
 {
     internal class Square : Figure
     {
-        private double sideA;
+        public double Side { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
         public Square(): this(0.0) { }
        
-        public Square(double sideA)
+        public Square(double side)
         {
-            this.sideA = sideA;
+            Side = side;
+            FigurePerimeter = 4 * Side;
         }
 
         public override string ToString()
         {
-            return $"This is a square with side: {sideA}.\n" + base.ToString();
+            return $"This is a square with side: {Side}.\n" + base.ToString();
         }
 
     }

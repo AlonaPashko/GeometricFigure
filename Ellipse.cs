@@ -8,8 +8,8 @@ namespace GeometricFigure
 {
     internal class Ellipse : Figure
     {
-        private double bigRadius;
-        private double smallRadius;
+        public double BigRadius { get; set; }
+        public double SmallRadius { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
@@ -18,12 +18,13 @@ namespace GeometricFigure
         
         public Ellipse(double bigRadius, double smallRadius)
         {
-            this.bigRadius = bigRadius;
-            this.smallRadius = smallRadius;
+            BigRadius = bigRadius;
+            SmallRadius = smallRadius;
+            FigurePerimeter = 2 * Math.PI * Math.Sqrt((Math.Pow(BigRadius, 2) + Math.Pow(SmallRadius, 2)) / 2);
         }
         public override string ToString()
         {
-            return $"This is an ellipse with big radius - {bigRadius} and small radius - {smallRadius}.\n" 
+            return $"This is an ellipse with big radius - {BigRadius} and small radius - {SmallRadius}.\n" 
                 + base.ToString();
         }
     }
