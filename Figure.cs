@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace GeometricFigure
 {
     abstract class Figure
-    { 
+    {
         public abstract double FigureArea { get; set; }
         public abstract double FigurePerimeter { get; set; }
-
+        
         public Figure() : this(0.0, 0.0) { }
         
         public Figure(double area, double perimeter) 

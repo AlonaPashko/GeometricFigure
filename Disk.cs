@@ -6,24 +6,22 @@ using System.Threading.Tasks;
 
 namespace GeometricFigure
 {
-    internal class Square : Figure
+    internal class Disk : Figure
     {
-        private double sideA;
+        private double radius;
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
 
-        public Square(): this(0.0) { }
-       
-        public Square(double sideA)
+        public Disk() : this(0.0) { }
+        
+        public Disk(double radius)
         {
-            this.sideA = sideA;
+            this.radius = radius;
         }
-
         public override string ToString()
         {
-            return $"This is a square with side: {sideA}.\n" + base.ToString();
+            return $"This is a disk with radius: {radius}.\n" + base.ToString();
         }
-
     }
 }
