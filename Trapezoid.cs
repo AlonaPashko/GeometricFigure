@@ -6,31 +6,50 @@ using System.Threading.Tasks;
 
 namespace GeometricFigure
 {
-    internal class Trapezoid : Figure
+    internal class Trapezoid : Figure, ISimplePolygon
     {
-        public double BigSide { get; set; }
-        public double SmallSide { get; set; }
-        public double BigHeight { get; set; }
+        public double Side { get; set; }
+        public double SmallBasis { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
+        public double Height { get; set; }
+        public double Basis { get; set; }
+        public double AngBaseAndCloseSide { get; set; }
+        public int SidesAmount { get; set; }
+        public double[] SidesLength { get; set; }
+        public double PolygonArea { get; set; }
+        public double PolygonPerimeter { get; set; }
 
-        public Trapezoid():this (0.0, 0.0, 0.0) { }
+        public Trapezoid():this (0.0, 0.0, 0.0, 0.0) { }
 
-        public Trapezoid(double bigSide, double smallSide, double height)
+        public Trapezoid(double basis,double smallBasis, double side, double height)
         {
-            BigSide = bigSide;
-            SmallSide = smallSide;
-            BigHeight = height;
-            FigurePerimeter = 2 * (BigSide + SmallSide);
-            FigureArea = (BigSide + SmallSide) * BigHeight / 2;
+            Basis = basis;
+            SmallBasis = smallBasis;
+            Side = side;
+            Height = height;
+            FigurePerimeter = PolygonPerimeter = Basis + SmallBasis + 2 * Side;
+            FigureArea = PolygonArea = (Basis + SmallBasis) * Height / 2;
+            SidesAmount = 4;
+            SidesLength = new[] { Basis, SmallBasis, Side, Side };
             
         }
 
         public override string ToString()
         {
-            return $"This is a trapezoid with big sides: {BigSide} and small sides: {SmallSide} and height: {BigHeight}.\n" 
-                + base.ToString();
+            return $"This is a trapezoid with basis: {Basis}, small basis: {SmallBasis}, height: {Height} and" +
+                $"sides: {Side}.\n" + base.ToString();
+        }
+
+        public string PrintSidesLength()
+        {
+            string sidesLength = "Sides Lehgth: ";
+            for (int i = 0; i < SidesLength.Length; i++)
+            {
+                sidesLength += SidesLength[i].ToString() + " ";
+            }
+            return sidesLength;
         }
     }
 }

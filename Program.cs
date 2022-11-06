@@ -25,12 +25,14 @@ Square square1 = new Square(2);
 Console.WriteLine(square1);
 Console.WriteLine("----------------------------"); 
 
-Trapezoid trapezoid1 = new Trapezoid(8, 5, 7);
+Trapezoid trapezoid1 = new Trapezoid(8, 4, 5, 7);
 Console.WriteLine(trapezoid1);
+Console.WriteLine(trapezoid1.PrintSidesLength());
 Console.WriteLine("----------------------------");
 
-Triangle triangle1 = new Triangle(5, 7, 6);
+Triangle triangle1 = new Triangle(5, 7, 6, 5);
 Console.WriteLine(triangle1);
+Console.WriteLine(triangle1.PrintSidesLength());
 Console.WriteLine("----------------------------");
 
 

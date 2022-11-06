@@ -13,3 +13,16 @@ From it are inherited:
 - class Trapezoid,
 - class Triangle.
 
+The interface ISimplePolygon has been implemented for all classes except Ellipse and Circle.
+ISimplePolygon has a properties:
+
+- Height,
+- Basis,
+- Angle between the base and the adjacent side,
+- Sides Amount,
+- Sides Length,
+- Polygon Area,
+- Polygon Perimeter.
+
+And a method for printing the sides length.
+
