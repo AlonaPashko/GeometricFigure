@@ -26,3 +26,6 @@ ISimplePolygon has a properties:
 
 And a method for printing the sides length.
 
+Implemented ComposedFigure class, which can consist of any number of polygons added to the list. 
+A method for calculating the area of a figure - CountArea is defined for this class.
+

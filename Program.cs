@@ -35,6 +35,15 @@ Console.WriteLine(triangle1);
 Console.WriteLine(triangle1.PrintSidesLength());
 Console.WriteLine("----------------------------");
 
+ComposedFigure composedFigure1 = new ComposedFigure();
+composedFigure1.Figures.Add(square1);
+composedFigure1.Figures.Add(triangle1);
+composedFigure1.Figures.Add(trapezoid1);
+composedFigure1.Figures.Add(rectangle1);
+composedFigure1.CountArea();
+Console.WriteLine(composedFigure1);
+
+
 
 
 
