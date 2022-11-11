@@ -19,8 +19,8 @@ namespace GeometricFigure
         }
         public override string ToString()
         {
-            return "Figure is composed of " + SetNumberOfPolygons().ToString() + " simple polygons.\n" + 
-                "The area of figure is " + Math.Round(ComposedArea, 3);
+            return "Figure is composed of " + SetNumberOfPolygons().ToString() + " simple polygons:\n" + PrintTypes() 
+                + "\n" + "The area of figure is " + Math.Round(ComposedArea, 3);
         }
     
         public double CountArea()
@@ -35,6 +35,15 @@ namespace GeometricFigure
         {
             NumberOfPolygons = Figures.Count;
             return NumberOfPolygons;
+        }
+        public string PrintTypes()
+        {
+            string types = "";
+            for (int i = 0; i < Figures.Count; i++)
+            {
+                types += Figures[i].GetType().ToString() + "\n";
+            }
+            return types;
         }
     }
 }

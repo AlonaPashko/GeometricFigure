@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeometricFigure.Exceptions;
 
 namespace GeometricFigure
 {
     internal class Square : Figure, ISimplePolygon
     {
+        private double basis;
+        
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
         public double Height { get; set; }
-        public double Basis { get; set; }
         public double AngBaseAndCloseSide { get; set; }
         public int SidesAmount { get; set; }
         public double[] SidesLength { get; set; }
@@ -20,8 +22,9 @@ namespace GeometricFigure
 
         public Square(): this(0.0) { }
        
-        public Square(double basis)
+        public Square(double inputBasis)
         {
+            this.basis = inputBasis;
             Height = Basis = basis;
             FigurePerimeter = PolygonPerimeter = 4 * Basis;
             FigureArea = PolygonArea = Math.Pow(Basis, 2);
@@ -29,6 +32,18 @@ namespace GeometricFigure
             SidesAmount = 4;
             SidesLength = new[] { Basis, Basis, Basis, Basis };
 
+        }
+        public double Basis 
+        { 
+            get => basis;
+            set
+            {
+                if (basis < 0)
+                {
+                    throw new NegativeSideException();
+                }
+                basis = value;
+            }
         }
 
         public override string ToString()

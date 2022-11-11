@@ -3,41 +3,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeometricFigure.Exceptions;
 
 namespace GeometricFigure
 {
     internal class Diamond : Figure, ISimplePolygon
     {
-        public double Side { get; set; }
-        public double BigDiagonal { get; set; }
+        private double basis;
+        private double height;
+
         public double SmallDiagonal { get; set; }
 
         public override double FigureArea { get; set; }
         public override double FigurePerimeter { get; set; }
-        public double Height { get; set; }
-        public double Basis { get; set; }
         public double AngBaseAndCloseSide { get; set; }
         public int SidesAmount { get; set; }
         public double[] SidesLength { get; set; }
         public double PolygonArea { get; set; }
         public double PolygonPerimeter { get; set; }
 
-        public Diamond():this(0.0, 0.0) { }
-       
-        public Diamond(double side, double bigDiagonal)
+        public Diamond() : this(0.0, 0.0) { }
+
+        public Diamond(double inputBasis, double inputHeight)
         {
-            Side = Basis = side;
-            BigDiagonal = Height = bigDiagonal;
-            SmallDiagonal = BigDiagonal / 2;
-            FigurePerimeter = PolygonPerimeter = 4 * side;
-            FigureArea = PolygonArea = (BigDiagonal * SmallDiagonal) / 2;
+            this.basis = inputBasis;
+            this.height = inputHeight;
+            Basis = basis;
+            Height = height;
+            SmallDiagonal = Height / 2;
+            FigurePerimeter = PolygonPerimeter = 4 * Basis;
+            FigureArea = PolygonArea = (Height * SmallDiagonal) / 2;
             SidesAmount = 4;
-            SidesLength = new double[4] {Side, Side, Side, Side};
+            SidesLength = new double[4] { Basis, Basis, Basis, Basis };
         }
+        public double Basis
+        {
+            get
+            {
+                return basis;
+            }
+            set
+            {
+                if (basis < 0)
+                {
+                    throw new NegativeSideException();
+                }
+                basis = value;
+            }
+        }
+        public double Height
+        {
+            get => height;
+            set
+            { 
+                if (height < 0)
+                {
+                    throw new NegativeSideException();
+                }
+                height = value;
+            }
+        }
+
         public override string ToString()
         {
-            return $"This is a diamond with sides: {Side}, big diagonal {BigDiagonal}" +
-                $" and small diagonal {SmallDiagonal}.\n" 
+            return $"This is a diamond with sides: {Basis}, big diagonal {Height}" +
+                $" and small diagonal {SmallDiagonal}.\n"
                 + base.ToString();
         }
 
