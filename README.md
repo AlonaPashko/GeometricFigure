@@ -32,3 +32,5 @@ A method for calculating the area of a figure - CountArea is defined for this cl
 Added a folder Exceptions with custom exception classes: ImpossibleFigureException, NegativeRadiusException,
 NegativeSideExeption.
 
+Also added a classes diagram.
+
